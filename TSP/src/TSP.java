@@ -10,7 +10,7 @@ import GUI.Login;
 
 /**
  *
- * @author Scrappy Doo Coco
+ * @author Alan
  */
 public class TSP {
 
