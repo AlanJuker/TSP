@@ -2,6 +2,7 @@
 import GUI.Login;
 import MD.MedicoMD;
 import GUI.VentanaMedico;
+import GUI.VentanaEjercicio;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,8 +21,10 @@ public class TSP {
     public static void main(String[] args) {
         // TODO code application logic here
         VentanaMedico vm = new VentanaMedico();
-        vm.setVisible(true);
+        VentanaEjercicio ej= new VentanaEjercicio();
+        ej.setVisible(true);
         new Login().setVisible(true);
+        
 
     }
 

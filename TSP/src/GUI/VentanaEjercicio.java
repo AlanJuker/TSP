@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package GUI;
+import DP.Ejercicio;
+import Modelos.ModeloEjercicio;
 
 /**
  *
@@ -11,11 +13,22 @@ package GUI;
  */
 public class VentanaEjercicio extends javax.swing.JFrame {
 
+    private Modelos.ModeloEjercicio ejercicio = new ModeloEjercicio();
     /**
      * Creates new form VentanaEjercicio
      */
     public VentanaEjercicio() {
         initComponents();
+        ejercicio.codigo="C3PO";
+        ejercicio.nombre="Dominadas";
+        ejercicio.tipo="Multiarticular";
+        ejercicio.repeticiones=10;
+        ejercicio.comentario="Realizar este ";
+        
+        DP.Ejercicio ejercicioDP= new Ejercicio();
+        ejercicioDP.verificarDP(ejercicio);
+        ejercicioDP.grabarDP(ejercicio);
+        
     }
 
     /**

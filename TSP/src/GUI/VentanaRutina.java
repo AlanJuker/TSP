@@ -4,18 +4,23 @@
  * and open the template in the editor.
  */
 package GUI;
-
+import DP.Rutina;
+import Modelos.ModeloRutina;
+     
 /**
  *
  * @author alang
  */
 public class VentanaRutina extends javax.swing.JFrame {
 
+    private Modelos.ModeloRutina rutina = new ModeloRutina();
     /**
      * Creates new form VentanaRutinas
      */
     public VentanaRutina() {
         initComponents();
+        rutina.codigo="C3PO";
+//        rutina.rutina=""
     }
 
     /**

@@ -13,17 +13,17 @@ import MD.PacienteMD;
  * @author alang
  */
 public class Paciente {
-
+    //CONSTRUCTOR
     public Paciente(){
     }
-    
+    //VERIFICARDP
     public boolean verificarDP(Modelos.ModeloPaciente paciente) {
         if(paciente.id.length() ==10){
             return true;
         }
         return false;
     }
-
+    //GRABARDP
     public boolean grabarDP(Modelos.ModeloPaciente paciente) {
        MD.PacienteMD pacienteMD = new PacienteMD();
         return pacienteMD.insertar(paciente);
