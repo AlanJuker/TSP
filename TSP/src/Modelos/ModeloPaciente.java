@@ -14,5 +14,5 @@ public class ModeloPaciente {
     public double peso;
     public double altura;
     public String codigoIMC;
-    public codigoPlanNutricion
+    public String codigoPlanNutricion;
 }
