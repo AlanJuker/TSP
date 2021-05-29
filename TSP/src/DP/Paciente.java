@@ -6,7 +6,7 @@
 package DP;
 
 import MD.PacienteMD;
-import com.sun.corba.se.impl.orbutil.graph.NodeData;
+
 
 /**
  *
@@ -17,7 +17,10 @@ public class Paciente {
     public Paciente(){
     }
     
-    public boolean verificarDP() {
+    public boolean verificarDP(Modelos.ModeloPaciente paciente) {
+        if(paciente.id.length() ==10){
+            return true;
+        }
         return false;
     }
 

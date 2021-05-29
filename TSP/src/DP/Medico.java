@@ -5,10 +5,25 @@
  */
 package DP;
 
+import MD.MedicoMD;
+
 /**
  *
  * @author alang
  */
 public class Medico {
+    public Medico(){
+    }
     
+    public boolean verificarDP(Modelos.ModeloMedico medico) {
+        if(medico.id.length() ==10){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean grabarDP(Modelos.ModeloMedico medico) {
+       MD.MedicoMD medicoMD = new MedicoMD();
+        return medicoMD.insertar(medico);
+    }
 }

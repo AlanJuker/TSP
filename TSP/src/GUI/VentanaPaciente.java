@@ -31,7 +31,7 @@ public class VentanaPaciente extends javax.swing.JFrame {
         paciente.edad = 12;
         
         DP.Paciente pacienteDP = new Paciente();
-        
+        pacienteDP.verificarDP(paciente);
         pacienteDP.grabarDP(paciente);
     }
 

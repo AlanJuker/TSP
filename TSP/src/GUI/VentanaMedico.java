@@ -5,17 +5,32 @@
  */
 package GUI;
 
+
+import DP.Medico;
+import Modelos.ModeloMedico;
 /**
  *
  * @author alang
  */
 public class VentanaMedico extends javax.swing.JFrame {
 
+    private Modelos.ModeloMedico medico = new ModeloMedico();
     /**
      * Creates new form VentanaMedico
      */
     public VentanaMedico() {
-        initComponents();
+         initComponents();
+        medico.id = "p002"; 
+        medico.nombre = "Isaac"; 
+        medico.genero = 'M'; 
+        medico.usuario = "a002"; 
+        medico.contrasenia = "002"; 
+        medico.especialidad = "Traumatologia";
+        medico.departamento = "Cirugia";
+        
+        DP.Medico medicoDP = new Medico();
+        medicoDP.verificarDP(medico);
+        medicoDP.grabarDP(medico);
     }
 
     /**
