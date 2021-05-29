@@ -32,7 +32,6 @@ public class PacienteMD {
             String clave = p.getProperty("clave");
             String driver = p.getProperty("driver");
             
-            Class.forName(driver);
             Connection con = (Connection) DriverManager.getConnection(conexion, usuario, clave);
             String id = "123", nombre = "isaac";
 
