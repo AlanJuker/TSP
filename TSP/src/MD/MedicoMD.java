@@ -16,6 +16,9 @@ import java.util.Properties;
  * @author alang
  */
 public class MedicoMD {
+    public MedicoMD(){
+        
+    }
     public boolean insertar(Modelos.ModeloMedico medico) {
         String raiz = System.getProperty("user.dir");
 
@@ -27,7 +30,7 @@ public class MedicoMD {
 
             String conexion = p.getProperty("conexion");
             String db = p.getProperty("db");
-            String insertMedico = p.getProperty("insrtMedico");
+            String insertMedico = p.getProperty("insertMedico");
             
             Connection con;
             con = DriverManager.getConnection(conexion + raiz + db);
@@ -36,7 +39,7 @@ public class MedicoMD {
             int res = st.executeUpdate(insertMedico+"('" + medico.id + "','" + medico.nombre
                     + "','" + medico.genero + "','" + medico.usuario + "','" + medico.contrasenia + "','"
                     + medico.especialidad + "','" + medico.departamento +"')");
-            System.out.println("ENTRE PUTOS");
+                    System.out.println("ENTRE PUTOS");
             if (res == 1) {
                 return true;
             }
