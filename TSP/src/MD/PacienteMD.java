@@ -5,11 +5,9 @@
  */
 package MD;
 
-import com.mysql.jdbc.Connection;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.sql.*;
-import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,30 +19,27 @@ public class PacienteMD {
     }
 
     // Metodos:
-    public static void insertar() throws FileNotFoundException {
-        Properties p = new Properties();    
+    public boolean insertar(Modelos.ModeloPaciente paciente) {
+        String raiz = System.getProperty("user.dir");
+        
 
         try {
-            FileReader f = new FileReader("src\\CONEXION.properties");
-            p.load(f);
-            String conexion = p.getProperty("conexion");
-            String usuario = p.getProperty("usuario");
-            String clave = p.getProperty("clave");
-            String driver = p.getProperty("driver");
-            
-            Connection con = (Connection) DriverManager.getConnection(conexion, usuario, clave);
-            String id = "123", nombre = "isaac";
+            Connection con;
+            con = DriverManager.getConnection("jdbc:ucanaccess://" + raiz + "\\BienestarPuce.accdb");
+            Statement st = con.createStatement();
 
-            String queryDe = "DELETE FROM paciente WHERE ID_PACIENTE ='" + id + "'";
-            String query = "INSERT INTO paciente (ID_PACIENTE,NOMBRE_PACIENTE) VALUES('" + id + "','" + nombre + "')";
-            String queryConsulta = "SELECT * FROM paciente WHERE ID_PACIENTE='" + id + "'";
-            String queryUpdate = "UPDATE paciente SET ID_PACIENTE ='" + id + "'";
+            int res = st.executeUpdate("insert into paciente values('" + paciente.id + "','" + paciente.nombre 
+                    + "','" + paciente.genero + "','" + paciente.usuario+ "','" + paciente.contrasenia+ "','" + 
+                    paciente.altura + "','" + paciente.peso + "','" + paciente.edad+ "')");
 
-            Statement pps = con.createStatement();
-            pps.executeUpdate(query);
+            if (res == 1) {
+                return true;
+            }
 
-        } catch (Exception e) {
-
+            st.close();
+            con.close();
+        } catch (Exception ex) {
         }
+        return false;
     }
 }

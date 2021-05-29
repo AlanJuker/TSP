@@ -10,5 +10,10 @@ package Modelos;
  * @author alang
  */
 public class ModeloPersona {
+    public String nombre;
+    public String id;
+    public String usuario;
+    public String contrasenia;
+    public char genero;
     
 }

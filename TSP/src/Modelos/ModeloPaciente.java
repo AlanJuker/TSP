@@ -9,7 +9,7 @@ package Modelos;
  *
  * @author alang
  */
-public class ModeloPaciente {
+public class ModeloPaciente extends ModeloPersona {
     public int edad;
     public double peso;
     public double altura;

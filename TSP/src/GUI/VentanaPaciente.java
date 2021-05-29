@@ -5,17 +5,34 @@
  */
 package GUI;
 
+import DP.Paciente;
+import Modelos.ModeloPaciente;
+
 /**
  *
  * @author alang
  */
 public class VentanaPaciente extends javax.swing.JFrame {
 
+    private Modelos.ModeloPaciente paciente = new ModeloPaciente();
+
     /**
      * Creates new form VentanaPacienrte
      */
     public VentanaPaciente() {
         initComponents();
+        paciente.id = "p001"; 
+        paciente.nombre = "Alan"; 
+        paciente.genero = 'M'; 
+        paciente.usuario = "a001"; 
+        paciente.contrasenia = "001"; 
+        paciente.altura= 2.2; 
+        paciente.peso = 22;
+        paciente.edad = 12;
+        
+        DP.Paciente pacienteDP = new Paciente();
+        
+        pacienteDP.grabarDP(paciente);
     }
 
     /**
@@ -33,11 +50,11 @@ public class VentanaPaciente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 521, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         pack();

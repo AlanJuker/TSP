@@ -20,13 +20,6 @@ public class TSP {
         // TODO code application logic here
         new Login().setVisible(true);
 
-        MD.PacienteMD pacientemd = new PacienteMD();
-        try {
-            pacientemd.insertar();
-        
-        } catch (Exception e) {
-
-        }
     }
 
 }
