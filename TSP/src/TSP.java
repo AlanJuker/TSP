@@ -7,8 +7,6 @@ import MD.PacienteMD;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author Alan
@@ -20,9 +18,15 @@ public class TSP {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        PacienteMD p = new PacienteMD();
-        p.insertar();
         new Login().setVisible(true);
+
+        MD.PacienteMD pacientemd = new PacienteMD();
+        try {
+            pacientemd.insertar();
+        
+        } catch (Exception e) {
+
+        }
     }
-    
+
 }
