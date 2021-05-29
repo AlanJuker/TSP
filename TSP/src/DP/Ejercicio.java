@@ -16,10 +16,7 @@ public class Ejercicio {
     }
     //VERIFICARDP
     public boolean verificarDP(Modelos.ModeloEjercicio ejercicio){
-        if(ejercicio.nombre.length() <= 20 && ejercicio.nombre.length()>=1){
-            return true;
-        }
-        return false;
+        return (ejercicio.nombre.length() <= 20 && ejercicio.nombre.length()>=1);
     }
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloEjercicio ejercicio){

@@ -21,8 +21,8 @@ public class VentanaPaciente extends javax.swing.JFrame {
      */
     public VentanaPaciente() {
         initComponents();
-        paciente.id = "p002"; 
-        paciente.nombre = "Isaac"; 
+        paciente.id = "p004"; 
+        paciente.nombre = "José"; 
         paciente.genero = 'M'; 
         paciente.usuario = "a002"; 
         paciente.contrasenia = "002"; 

@@ -20,8 +20,8 @@ public class VentanaMedico extends javax.swing.JFrame {
      */
     public VentanaMedico() {
          initComponents();
-        medico.id = "p002"; 
-        medico.nombre = "Isaac"; 
+        medico.id = "p003"; 
+        medico.nombre = "Julian"; 
         medico.genero = 'M'; 
         medico.usuario = "a002"; 
         medico.contrasenia = "002"; 
@@ -29,7 +29,7 @@ public class VentanaMedico extends javax.swing.JFrame {
         medico.departamento = "Cirugia";
         
         DP.Medico medicoDP = new Medico();
-        medicoDP.verificarDP(medico);
+        //medicoDP.verificarDP(medico);
         medicoDP.grabarDP(medico);
     }
 

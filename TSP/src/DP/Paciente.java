@@ -5,27 +5,27 @@
  */
 package DP;
 
+import DP.Interface.PropertiesDB;
 import MD.PacienteMD;
-
 
 /**
  *
  * @author alang
  */
 public class Paciente {
+
     //CONSTRUCTOR
-    public Paciente(){
+    public Paciente() {
     }
+
     //VERIFICARDP
     public boolean verificarDP(Modelos.ModeloPaciente paciente) {
-        if(paciente.id.length() ==10){
-            return true;
-        }
-        return false;
+        return paciente.id.length() == 10;
     }
+
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloPaciente paciente) {
-       MD.PacienteMD pacienteMD = new PacienteMD();
+        MD.PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
         return pacienteMD.insertar(paciente);
     }
 }

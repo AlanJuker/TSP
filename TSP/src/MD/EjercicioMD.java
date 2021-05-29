@@ -33,8 +33,6 @@ public class EjercicioMD {
             String insertEjercicio = p.getProperty("insertEjercicio");
             Connection con;
             con = DriverManager.getConnection(conexion + raiz + db);
-                        System.out.println("llego2");
-
             Statement st = con.createStatement();
             //REALIZAMOS LA INSERCION DE LOS DATOS
             int res = st.executeUpdate(insertEjercicio+"('" + ejercicio.nombre + "','" + ejercicio.codigo
