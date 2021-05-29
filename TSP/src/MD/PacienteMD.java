@@ -28,6 +28,23 @@ public class PacienteMD {
                 + "','" + paciente.genero + "','" + paciente.usuario + "','" + paciente.contrasenia + "','"
                 + paciente.altura + "','" + paciente.peso + "','" + paciente.edad + "')";
 
-        return datosDB.insert(sqlOp);
+        return datosDB.CUD(sqlOp);
     }
+
+    public boolean modificar(Modelos.ModeloPaciente paciente) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = "Instrucción prueba";
+
+        return datosDB.CUD(sqlOp);
+    }
+
+    public boolean eliminar(Modelos.ModeloPaciente paciente) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = "Instrucción prueba";
+
+        return datosDB.CUD(sqlOp);
+    }
+    
 }

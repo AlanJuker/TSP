@@ -52,7 +52,7 @@ public class ManejoDeDatosDB {
         }
     }
 
-    public boolean insert(String sqlOp) {
+    public boolean CUD(String sqlOp) {
         abrirConexion();
         getDBStatement();
         boolean inserta = false;
@@ -66,4 +66,18 @@ public class ManejoDeDatosDB {
         return inserta;
     }
 
+    public ResultSet Consultar(String sqlOp) {
+        abrirConexion();
+        getDBStatement();
+        ResultSet rs = null;
+        boolean inserta = false;
+        try {
+            rs = _st.executeQuery(sqlOp);
+        } catch (Exception e) {
+
+        } finally {
+            cerrarConexion();
+        }
+        return rs;
+    }
 }

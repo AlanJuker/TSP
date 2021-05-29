@@ -12,7 +12,6 @@ package DP.Interface;
  * @author alang
  */
 public interface IPropertiesDB {
-    
     String getRaiz();
     String getConexion();
     String getDB();
