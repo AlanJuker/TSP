@@ -1,5 +1,6 @@
 
 import GUI.Login;
+import MD.PacienteMD;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,9 +20,9 @@ public class TSP {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MD.PacienteMD p = new PacienteMD();
+        PacienteMD p = new PacienteMD();
         p.insertar();
-        //new Login().setVisible(true);
+        new Login().setVisible(true);
     }
     
 }
