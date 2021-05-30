@@ -29,8 +29,11 @@ public class VentanaMedico extends javax.swing.JFrame {
         medico.departamento = "Cirugia";
         
         DP.Medico medicoDP = new Medico();
-        //medicoDP.verificarDP(medico);
-        medicoDP.grabarDP(medico);
+        medicoDP.verificarDP(medico);
+        //medicoDP.grabarDP(medico);
+        //medicoDP.consultarDP();
+        medicoDP.consultarParametroDP("p003");
+        //medicoDP.eliminarDP("p003");
     }
 
     /**

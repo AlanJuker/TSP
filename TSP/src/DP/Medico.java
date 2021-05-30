@@ -5,7 +5,11 @@
  */
 package DP;
 
+import DP.Interface.PropertiesDB;
 import MD.MedicoMD;
+import MD.MedicoMD;
+import Modelos.ModeloMedico;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +28,19 @@ public class Medico {
     }
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloMedico medico) {
-       MD.MedicoMD medicoMD = new MedicoMD();
+       MD.MedicoMD medicoMD = new MedicoMD(new PropertiesDB());
         return medicoMD.insertar(medico);
+    }
+    public ArrayList<ModeloMedico> consultarDP() {
+        MedicoMD medicoMD = new MedicoMD(new PropertiesDB());
+        return medicoMD.consultaGeneral();
+    }
+    public ModeloMedico consultarParametroDP(String id) {
+        MedicoMD medicoMD = new MedicoMD(new PropertiesDB());
+        return medicoMD.consultaParametro(id);
+    }
+    public boolean eliminarDP(String id) {
+        MedicoMD medicoMD = new MedicoMD(new PropertiesDB());
+        return medicoMD.eliminar(id);
     }
 }

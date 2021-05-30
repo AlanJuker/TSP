@@ -5,10 +5,14 @@
  */
 package MD;
 
+import DP.Interface.IPropertiesDB;
+import Modelos.ModeloMedico;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 /**
@@ -16,40 +20,83 @@ import java.util.Properties;
  * @author alang
  */
 public class MedicoMD {
+     IPropertiesDB _properties;
+
     //CONSTRUCTOR
-    public MedicoMD(){
-        
+    public MedicoMD(IPropertiesDB properties) {
+        _properties = properties;
     }
+    
+   
     //METODO INSERTAR
-    public boolean insertar(Modelos.ModeloMedico medico) {
-        //OBTENEMOS LA DIRECCION DEL PROGRAMA
-        String raiz = System.getProperty("user.dir");
+    public boolean insertar(ModeloMedico medico) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = _properties.getInsertMedico() + "('" + medico.id + "','" + medico.nombre
+                + "','" + medico.genero + "','" + medico.usuario + "','" + medico.contrasenia + "','"
+                + medico.especialidad + "','" + medico.departamento + "')";
+
+        return datosDB.CUD(sqlOp);
+    }
+
+    public boolean modificar(ModeloMedico medico) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = "Instrucción prueba";
+
+        return datosDB.CUD(sqlOp);
+    }
+
+    public boolean eliminar(String id) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = _properties.getEliminarMedico()+"'"+ id +"'";
+        return datosDB.CUD(sqlOp);
+    }
+
+    public ArrayList<ModeloMedico> consultaGeneral() {
+        ArrayList<ModeloMedico> medicos = new ArrayList<ModeloMedico>();
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = _properties.getConsultarMedico();
+
+        ResultSet ResultSet = datosDB.Consultar(sqlOp);
         try {
-            //OBTENEMOS LOS VALORES DEL PROPERTIES
-            Properties p = new Properties();
-            FileReader f = new FileReader("src\\CONEXION.properties");
-            p.load(f);
-            //REALIZAMOS LA CONEXION CON LA BASE DE DATOS
-            String conexion = p.getProperty("conexion");
-            String db = p.getProperty("db");
-            String insertMedico = p.getProperty("insertMedico");
-            Connection con;
-            con = DriverManager.getConnection(conexion + raiz + db);
-            Statement st = con.createStatement();
-            //REALIZAMOS LA INSERCION DE LOS DATOS
-            int res = st.executeUpdate(insertMedico+"('" + medico.id + "','" + medico.nombre
-                    + "','" + medico.genero + "','" + medico.usuario + "','" + medico.contrasenia + "','"
-                    + medico.especialidad + "','" + medico.departamento +"')");
-                    System.out.println("ENTRE PUTOS");
-            //VALIDAMOS QUE LOS DATOS SE INGRESEN DE FORMA CORRECTA
-            if (res == 1) {
-                return true;
+            while (ResultSet.next()) {
+                ModeloMedico medico = new ModeloMedico();
+                medico.id = ResultSet.getString("id_medico");
+                medico.nombre = ResultSet.getString("nombre_medico");
+                medico.genero = ResultSet.getString("genero_medico").toCharArray()[0];
+                medico.usuario = ResultSet.getString("usuario_medico");
+                medico.contrasenia = ResultSet.getString("contrasenia_medico");
+                medico.especialidad = ResultSet.getString("especialidad");
+                medico.departamento = ResultSet.getString("departamento");
+              
+                medicos.add(medico);
             }
-            //CERRAMOS EL STATEMENT Y LA CONEXION
-            st.close();
-            con.close();
-        } catch (Exception ex) {
+        } catch (Exception e) {
+
         }
-        return false;
+        return medicos;
+    }
+    public ModeloMedico consultaParametro(String id) {
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+        String sqlOp = _properties.getConsultarMedico()+ " WHERE ID_MEDICO = '" +id+ "'";
+        System.out.println(sqlOp);
+        ResultSet ResultSet = datosDB.Consultar(sqlOp);
+        ModeloMedico medico = new ModeloMedico();
+        try {
+                medico.id = ResultSet.getString("id_medico");
+                medico.nombre = ResultSet.getString("nombre_medico");
+                medico.genero = ResultSet.getString("genero_medico").toCharArray()[0];
+                medico.usuario = ResultSet.getString("usuario_medico");
+                medico.contrasenia = ResultSet.getString("contrasenia_medico");
+                medico.especialidad = ResultSet.getString("especialidad");
+                medico.departamento = ResultSet.getString("departamento");
+        } catch (Exception e) {
+
+        }
+        System.out.println(medico.id+" "+medico.nombre+" "+medico.genero);
+        return medico;
     }
 }
