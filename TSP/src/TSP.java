@@ -28,9 +28,11 @@ public class TSP {
         
         //new Login().setVisible(true);
         System.out.println("s");
-        VentanaPaciente paciente = new VentanaPaciente();
-        VentanaCitaMedica cita= new VentanaCitaMedica();
-        paciente.setVisible(true);
+
+
+        VentanaMedico medico = new VentanaMedico();
+        medico.setVisible(true);
+
     }
 
 }
