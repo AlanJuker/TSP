@@ -5,10 +5,15 @@
  */
 package DP;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alang
  */
 public class PlanNutricion {
+    public PlanNutricion() {
+    }
+
     
 }

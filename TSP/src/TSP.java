@@ -1,5 +1,6 @@
 
 import GUI.Login;
+import GUI.VentanaAlimento;
 import GUI.VentanaCitaMedica;
 import MD.MedicoMD;
 import GUI.VentanaMedico;
@@ -27,12 +28,8 @@ public class TSP {
         //ej.setVisible(true);
         
         //new Login().setVisible(true);
-        System.out.println("s");
-
-
-        VentanaMedico medico = new VentanaMedico();
-        medico.setVisible(true);
-
+        VentanaAlimento paciente = new VentanaAlimento();
+        
     }
 
 }

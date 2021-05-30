@@ -5,17 +5,35 @@
  */
 package GUI;
 
+import DP.Alimento;
+import Modelos.ModeloAlimento;
+
 /**
  *
  * @author alang
  */
 public class VentanaAlimento extends javax.swing.JFrame {
-
+    ModeloAlimento alimento = new ModeloAlimento();
+    
     /**
      * Creates new form VentanaAlimentos
      */
     public VentanaAlimento() {
         initComponents();
+        
+        alimento.codigo_alimento = "a001";
+        alimento.nombre_alimento = "Lechuga";
+        alimento.tipo_alimento = "Verdura";
+        alimento.cantidad = 12;
+        alimento.unidadmedida = "200g";
+
+        Alimento alimentoDP = new Alimento();
+        //alimentoDP.grabarDP(alimento);       
+        alimentoDP.modificarDP("a001", "Lechugita", "Verdura", 20, "300g");
+        alimentoDP.eliminarDP("a001");
+        alimentoDP.consultarDP();
+        alimentoDP.consultarParametroDP("a002");
+
     }
 
     /**

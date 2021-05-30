@@ -31,8 +31,23 @@ public class Paciente {
         return pacienteMD.insertar(paciente);
     }
 
+    public boolean modificarMD(String id, String Nnombre, char Ngenero, String Nusuario, String Ncontrasenia, double Naltura, double Npeso, int Nedad) {
+        PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
+        return pacienteMD.modificar(id, Nnombre, Ngenero, Nusuario, Ncontrasenia, Naltura, Npeso, Nedad);
+    }
+
     public ArrayList<ModeloPaciente> consultarDP() {
         PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
         return pacienteMD.consultaGeneral();
+    }
+
+    public ModeloPaciente consultarParametroDP(String id) {
+        PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
+        return pacienteMD.consultaParametro(id);
+    }
+
+    public boolean eliminarDP(String id) {
+        PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
+        return pacienteMD.eliminar(id);
     }
 }

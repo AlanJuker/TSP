@@ -19,6 +19,7 @@ public class ManejoDeDatosDB {
     Statement _st;
     IPropertiesDB _properties;
     Connection con;
+    PreparedStatement pst;
 
     public ManejoDeDatosDB(IPropertiesDB properties) {
         _properties = properties;
@@ -66,6 +67,7 @@ public class ManejoDeDatosDB {
         return inserta;
     }
 
+
     public ResultSet Consultar(String sqlOp) {
         abrirConexion();
         getDBStatement();
@@ -80,4 +82,5 @@ public class ManejoDeDatosDB {
         }
         return rs;
     }
+
 }
