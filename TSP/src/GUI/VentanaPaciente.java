@@ -33,6 +33,7 @@ public class VentanaPaciente extends javax.swing.JFrame {
         DP.Paciente pacienteDP = new Paciente();
         pacienteDP.verificarDP(paciente);
         pacienteDP.grabarDP(paciente);
+        pacienteDP.consultarDP() ;
     }
 
     /**
