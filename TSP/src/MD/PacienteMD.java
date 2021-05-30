@@ -6,6 +6,9 @@
 package MD;
 
 import DP.Interface.IPropertiesDB;
+import Modelos.ModeloPaciente;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,7 +24,7 @@ public class PacienteMD {
     }
     //METODO INSERTAR
 
-    public boolean insertar(Modelos.ModeloPaciente paciente) {
+    public boolean insertar(ModeloPaciente paciente) {
         ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
 
         String sqlOp = _properties.getInsertPaciente() + "('" + paciente.id + "','" + paciente.nombre
@@ -31,7 +34,7 @@ public class PacienteMD {
         return datosDB.CUD(sqlOp);
     }
 
-    public boolean modificar(Modelos.ModeloPaciente paciente) {
+    public boolean modificar(ModeloPaciente paciente) {
         ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
 
         String sqlOp = "Instrucción prueba";
@@ -39,12 +42,37 @@ public class PacienteMD {
         return datosDB.CUD(sqlOp);
     }
 
-    public boolean eliminar(Modelos.ModeloPaciente paciente) {
+    public boolean eliminar(ModeloPaciente paciente) {
         ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
 
         String sqlOp = "Instrucción prueba";
 
         return datosDB.CUD(sqlOp);
     }
-    
+
+    public ArrayList<ModeloPaciente> consultaGeneral() {
+        ArrayList<ModeloPaciente> pacientes = new ArrayList<ModeloPaciente>();
+        ManejoDeDatosDB datosDB = new ManejoDeDatosDB(_properties);
+
+        String sqlOp = _properties.getConsultarPaciente();
+
+        ResultSet ResultSet = datosDB.Consultar(sqlOp);
+        try {
+            while (ResultSet.next()) {
+                ModeloPaciente paciente = new ModeloPaciente();
+                paciente.id = ResultSet.getString("id_paciente");
+                paciente.nombre = ResultSet.getString("nombre_paciente");
+                paciente.genero = ResultSet.getString("genero_paciente").toCharArray()[0];
+                paciente.usuario = ResultSet.getString("usuario_paciente");
+                paciente.contrasenia = ResultSet.getString("contrasenia_paciente");
+                paciente.altura = ResultSet.getFloat("altura");
+                paciente.peso = ResultSet.getFloat("peso");
+                paciente.edad = ResultSet.getInt("edad");
+                pacientes.add(paciente);
+            }
+        } catch (Exception e) {
+
+        }
+        return pacientes;
+    }
 }

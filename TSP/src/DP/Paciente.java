@@ -7,6 +7,8 @@ package DP;
 
 import DP.Interface.PropertiesDB;
 import MD.PacienteMD;
+import Modelos.ModeloPaciente;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +27,12 @@ public class Paciente {
 
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloPaciente paciente) {
-        MD.PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
+        PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
         return pacienteMD.insertar(paciente);
+    }
+
+    public ArrayList<ModeloPaciente> consultarDP() {
+        PacienteMD pacienteMD = new PacienteMD(new PropertiesDB());
+        return pacienteMD.consultaGeneral();
     }
 }
