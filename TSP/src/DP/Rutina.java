@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DP;
+import DP.Interface.PropertiesDB;
 import MD.RutinaMD;
 /**
  *
@@ -15,15 +16,12 @@ public class Rutina {
         
     }
     //VERIFICARDP
-//    public boolean verificarDP(Modelos.ModeloRutina rutina){
-//        if(rutina.codigo.length()==4){
-//            return true;
-//        }
-//        return false;
-//    }
+    public boolean veridicarDP(Modelos.ModeloRutina rutina){
+        return rutina.idcita.length()==4;
+    }
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloRutina rutina){
-        MD.RutinaMD rutinaMD= new RutinaMD();
+        MD.RutinaMD rutinaMD= new RutinaMD(new PropertiesDB());
         return rutinaMD.insertar(rutina);
     }
     

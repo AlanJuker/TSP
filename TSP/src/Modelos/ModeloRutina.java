@@ -13,5 +13,5 @@ package Modelos;
  */
 public class ModeloRutina {
     public String codigo;
-    
+    public String idcita;
 }

@@ -20,6 +20,7 @@ public class VentanaRutina extends javax.swing.JFrame {
     public VentanaRutina() {
         initComponents();
         rutina.codigo="C3PO";
+        rutina.idcita="C3PO";
 //        rutina.rutina=""
     }
 
