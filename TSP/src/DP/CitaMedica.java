@@ -6,6 +6,11 @@
 package DP;
 import DP.Interface.PropertiesDB;
 import MD.CitaMedicaMD;
+import MD.MedicoMD;
+import Modelos.ModeloCitaMedica;
+import Modelos.ModeloMedico;
+import Modelos.ModeloPaciente;
+import java.util.ArrayList;
 /**
  *
  * @author alang
@@ -21,7 +26,32 @@ public class CitaMedica {
     }
     //GRABARDP
     public boolean grabarDP(Modelos.ModeloCitaMedica citaMedica){
-        MD.CitaMedicaMD citaMedicaMD = new CitaMedicaMD(new PropertiesDB());
-        return citaMedicaMD.modificar(citaMedica);
+        CitaMedicaMD citaMedicaMD = new CitaMedicaMD(new PropertiesDB());
+        return citaMedicaMD.insertar(citaMedica);
     }
+    public boolean modificarMD(String idcita, String id_medico, String id_paciente, String fecha, String comentario){
+        CitaMedicaMD citaMedicaMD = new CitaMedicaMD(new PropertiesDB());
+        return citaMedicaMD.modificar(idcita, id_medico, id_paciente, fecha, comentario);
+    }
+    public ArrayList<ModeloCitaMedica> consultarDP(){
+        CitaMedicaMD citaMedicaMD =new CitaMedicaMD(new PropertiesDB());
+        return citaMedicaMD.consultaGeneral();
+    }
+    public ModeloCitaMedica consultaParametroDP(String id){
+        CitaMedicaMD citaMedicaMD =new CitaMedicaMD(new PropertiesDB());
+        return citaMedicaMD.consultaParametro(id);
+    }
+    public boolean eliminarDP(String id){
+        CitaMedicaMD citaMedicaMD =new CitaMedicaMD(new PropertiesDB());
+        return citaMedicaMD.eliminar(id);
+    }
+    public ArrayList<ModeloMedico> obtenerMedico(){
+        CitaMedicaMD MedicoMD =new CitaMedicaMD(new PropertiesDB());
+        return MedicoMD.consultaMedico();
+    }
+    public ArrayList<ModeloPaciente> obtenerPaciente(){
+        CitaMedicaMD PacienteMD =new CitaMedicaMD(new PropertiesDB());
+        return PacienteMD.consultaPaciente();
+    }
+    
 }
