@@ -98,11 +98,11 @@ public class PropertiesDB implements IPropertiesDB {
     //CRUD imc
     @Override
     public String getInsertIMC() {
-        return _properties.getProperty("insertarEjercicio");
+        return _properties.getProperty("insertarIMC");
     }
     @Override
     public String getModificarIMC() {
-        return _properties.getProperty("modificarEjercicio");
+        return _properties.getProperty("modificarIMC");
     }
     @Override
     public String getConsultarIMC() {
@@ -155,11 +155,11 @@ public class PropertiesDB implements IPropertiesDB {
 
     @Override
     public String getInsertPlanNutricion() {
-        return _properties.getProperty("insertarPaciente");
+        return _properties.getProperty("InsertarPlanNutricion");
     }
     @Override
     public String getModificarPlanNutricion() {
-        return _properties.getProperty("modificarPaciente");
+        return _properties.getProperty("modificarPlanNutricion");
     }
     @Override
     public String getConsultarPlanNutricion() {
