@@ -1,5 +1,6 @@
 
 import GUI.Login;
+import GUI.VentanaCitaMedica;
 import MD.MedicoMD;
 import GUI.VentanaMedico;
 import GUI.VentanaEjercicio;
@@ -28,6 +29,7 @@ public class TSP {
         //new Login().setVisible(true);
         System.out.println("s");
         VentanaPaciente paciente = new VentanaPaciente();
+        VentanaCitaMedica cita= new VentanaCitaMedica();
         paciente.setVisible(true);
     }
 

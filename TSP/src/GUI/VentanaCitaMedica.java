@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package GUI;
+import DP.CitaMedica;
+import Modelos.ModeloCitaMedica;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -11,11 +15,21 @@ package GUI;
  */
 public class VentanaCitaMedica extends javax.swing.JFrame {
 
+    private Modelos.ModeloCitaMedica citaMedica = new ModeloCitaMedica();
     /**
      * Creates new form VentanaCitasMedicas
      */
     public VentanaCitaMedica() {
         initComponents();
+        citaMedica.idCita="C3PO";
+        citaMedica.idMedico="p002";
+        citaMedica.idPaciente="p002";
+        citaMedica.fecha= "24-05-2020";
+        citaMedica.comentario="chao";
+        
+        DP.CitaMedica citaMedicaDP = new CitaMedica();
+        citaMedicaDP.verificarDP(citaMedica);
+        citaMedicaDP.grabarDP(citaMedica);
     }
 
     /**
